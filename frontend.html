@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Smart Expense Tracker</title>
+<style>
+body{
+  font-family: 'Segoe UI', sans-serif;
+  margin:0;
+  background: linear-gradient(120deg,#e3f2fd,#fce4ec);
+}
+
+header{
+  background:#1e88e5;
+  color:white;
+  padding:15px;
+  text-align:center;
+  font-size:22px;
+}
+
+nav{
+  text-align:center;
+  margin:10px 0;
+}
+nav a{
+  margin:10px;
+  text-decoration:none;
+  color:#1e88e5;
+  font-weight:bold;
+}
+
+.section{
+  display:none;
+  width:350px;
+  margin:30px auto;
+  padding:25px;
+  background:white;
+  border-radius:15px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.1);
+  text-align:center;
+}
+
+.section:target{
+  display:block;
+}
+
+input,select{
+  width:90%;
+  padding:10px;
+  margin:10px 0;
+  border-radius:8px;
+  border:1px solid #ccc;
+}
+
+button{
+  padding:10px 25px;
+  border:none;
+  border-radius:8px;
+  background:#43a047;
+  color:white;
+  font-size:15px;
+}
+
+.card{
+  background:#f1f8e9;
+  padding:15px;
+  margin:10px;
+  border-radius:10px;
+}
+
+.meter{
+  width:160px;
+  height:160px;
+  border-radius:50%;
+  margin:20px auto;
+  background:conic-gradient(#e53935 70%, #cfd8dc 0%);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:26px;
+  font-weight:bold;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+}
+th,td{
+  padding:8px;
+  border-bottom:1px solid #ddd;
+}
+
+.low{color:green;font-weight:bold;}
+.medium{color:orange;font-weight:bold;}
+.high{color:red;font-weight:bold;}
+</style>
+</head>
+
+<body>
+
+<header>Smart Expense Tracker with Regret Meter</header>
+
+<nav>
+  <a href="#login">Login</a>
+  <a href="#signup">Signup</a>
+  <a href="#dashboard">Dashboard</a>
+  <a href="#add">Add Expense</a>
+  <a href="#history">History</a>
+  <a href="#insights">Insights</a>
+</nav>
+
+<!-- LOGIN -->
+<div id="login" class="section">
+  <h2>Login</h2>
+  <input type="email" placeholder="Email">
+  <input type="password" placeholder="Password">
+  <button>Login</button>
+</div>
+
+<!-- SIGNUP -->
+<div id="signup" class="section">
+  <h2>Create Account</h2>
+  <input type="text" placeholder="Name">
+  <input type="email" placeholder="Email">
+  <input type="password" placeholder="Password">
+  <button>Signup</button>
+</div>
+
+<!-- DASHBOARD -->
+<div id="dashboard" class="section">
+  <h2>Dashboard</h2>
+  <div class="card">Monthly Budget: ₹10,000</div>
+  <div class="card">Total Spent: ₹7,000</div>
+  <div class="card">Remaining: ₹3,000</div>
+
+  <div class="meter">70%</div>
+  <p>You often regret food delivery expenses</p>
+</div>
+
+<!-- ADD EXPENSE -->
+<div id="add" class="section">
+  <h2>Add Expense</h2>
+  <input type="number" placeholder="Amount">
+  <select>
+    <option>Food</option>
+    <option>Shopping</option>
+    <option>Travel</option>
+    <option>Bills</option>
+  </select>
+  <input type="date">
+  <select>
+    <option>Happy</option>
+    <option>Neutral</option>
+    <option>Regret</option>
+  </select>
+  <button>Submit</button>
+</div>
+
+<!-- HISTORY -->
+<div id="history" class="section">
+  <h2>Expense History</h2>
+  <table>
+    <tr><th>Date</th><th>Category</th><th>Amount</th><th>Regret</th></tr>
+    <tr><td>12/06</td><td>Food</td><td>₹500</td><td class="high">High</td></tr>
+    <tr><td>13/06</td><td>Bills</td><td>₹1200</td><td class="low">Low</td></tr>
+  </table>
+</div>
+
+<!-- INSIGHTS -->
+<div id="insights" class="section">
+  <h2>Insights</h2>
+  <div class="card">
+    Most Regretful Category: <b>Food Delivery</b>
+  </div>
+  <div class="card">
+    Suggestion: Try cooking at home 2 days a week.
+  </div>
+</div>
+
+</body>
+</html>
