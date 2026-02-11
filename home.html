@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Smart Expense Tracker - Home</title>
+    <link rel="stylesheet" href="home.css">
+
+    <!-- Font Awesome (For Profile Icon) -->
+    <script src="https://kit.fontawesome.com/yourkitid.js" crossorigin="anonymous"></script>
+
+    <style>
+        /* Basic Fix for Dropdown */
+        .profile-menu {
+            display: none;
+            position: absolute;
+            background: white;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .profile-menu p {
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .profile-menu p:hover {
+            background: #f1f1f1;
+        }
+
+        .nav-profile {
+            position: relative;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- TOP NAVIGATION BAR -->
+        <nav class="top-nav">
+            <div class="nav-container">
+
+                <div class="logo">Smart Expense Tracker</div>
+
+                <ul class="nav-links">
+                    <li class="active"><a href="home.html">Home</a></li>
+                    <li><a href="expenses1.html">Expenses</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+
+                <!-- PROFILE -->
+                <div class="nav-profile" onclick="toggleProfileMenu()">
+    <i class="fa-solid fa-user profile-icon"></i>
+
+    <div class="profile-menu" id="profileMenu">
+        <div class="menu-item" onclick="viewProfile()">
+            <i class="fa-solid fa-user"></i>
+            <span>View Profile</span>
+        </div>
+
+        <div class="menu-item" onclick="openSettings()">
+            <i class="fa-solid fa-gear"></i>
+            <span>Settings</span>
+        </div>
+
+        <div class="menu-item" onclick="changePassword()">
+            <i class="fa-solid fa-key"></i>
+            <span>Change Password</span>
+        </div>
+
+        <div class="menu-item logout" onclick="logoutUser()">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            <span>Logout</span>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </nav>
+
+        <!-- Header -->
+        <div class="header">
+            <h2 id="greetingText"></h2>
+            <p>Have a good day!</p>
+            <input type="hidden" id="username" value="Meshva">
+
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Search expenses">
+                <button onclick="searchExpense()">🔍</button>
+            </div>
+        </div>
+
+        <!-- Tabs -->
+        <div class="tabs">
+            <button onclick="changeTab(this)" class="active">Today</button>
+            <button onclick="changeTab(this)">Week</button>
+            <button onclick="changeTab(this)">Month</button>
+        </div>
+
+        <!-- Regret Meter -->
+        <div class="regret-card">
+            <h3>Regret Meter 😅</h3>
+            <input type="range" min="0" max="100" value="40"
+                id="regretRange" oninput="updateRegret()">
+            <p id="regretText">Moderate Regret</p>
+        </div>
+
+        <!-- Expense List -->
+        <div class="expense-list" id="expenseList">
+            <div class="expense-card">
+                <span>🍔</span>
+                <h4>Food</h4>
+                <strong>₹230</strong>
+            </div>
+
+            <div class="expense-card">
+                <span>⛽</span>
+                <h4>Fuel</h4>
+                <strong>₹400</strong>
+            </div>
+
+            <div class="expense-card">
+                <span>👕</span>
+                <h4>Shirt</h4>
+                <strong>₹1000</strong>
+            </div>
+        </div>
+
+        <!-- Add Button -->
+        <button class="add-btn" onclick="addExpense()">+</button>
+
+        <!-- Bottom Nav -->
+        <div class="bottom-nav">
+            <span onclick="goHome()">🏠</span>
+            <span onclick="goStats()">📊</span>
+            <span onclick="viewProfile()">👤</span>
+        </div>
+
+    </div>
+
+    <script>
+
+        /* -------- PROFILE MENU -------- */
+        // function toggleProfileMenu() {
+        //     const menu = document.getElementById("profileMenu");
+        //     menu.style.display =
+        //         menu.style.display === "block" ? "none" : "block";
+        // }
+
+        // function viewProfile() {
+        //     window.location.href = "profile.html";
+        // }
+
+        // function openSettings() {
+        //     window.location.href = "settings.html";
+        // }
+
+        // function changePassword() {
+        //     window.location.href = "change-password.html";
+        // }
+
+        // function logoutUser() {
+        //     if (confirm("Are you sure you want to logout?")) {
+        //         window.location.href = "login.html";
+        //     }
+        // }
+
+        // /* Close dropdown when clicking outside */
+        // window.addEventListener("click", function (e) {
+        //     if (!e.target.closest(".nav-profile")) {
+        //         document.getElementById("profileMenu").style.display = "none";
+        //     }
+        // });
+
+        function toggleProfileMenu() {
+    const menu = document.getElementById("profileMenu");
+    menu.style.display =
+        menu.style.display === "block" ? "none" : "block";
+}
+
+
+        /* -------- GREETING -------- */
+        function setGreeting() {
+            const name = document.getElementById("username").value;
+            const hour = new Date().getHours();
+            let greeting;
+
+            if (hour < 12) greeting = "Good Morning";
+            else if (hour < 17) greeting = "Good Afternoon";
+            else greeting = "Good Evening";
+
+            document.getElementById("greetingText").innerText =
+                greeting + ", " + name + "! 👋";
+        }
+
+        window.onload = setGreeting;
+
+        /* -------- REGRET METER -------- */
+        function updateRegret() {
+            const value = document.getElementById("regretRange").value;
+            const text = document.getElementById("regretText");
+
+            if (value < 30) {
+                text.innerText = "No Regret 😄";
+                text.style.color = "green";
+            } else if (value < 70) {
+                text.innerText = "Moderate Regret 😅";
+                text.style.color = "orange";
+            } else {
+                text.innerText = "High Regret 😬";
+                text.style.color = "red";
+            }
+        }
+
+        /* -------- SEARCH -------- */
+        function searchExpense() {
+            const input = document.getElementById("searchInput").value.toLowerCase();
+            const cards = document.querySelectorAll(".expense-card");
+
+            cards.forEach(card => {
+                const text = card.innerText.toLowerCase();
+                card.style.display =
+                    text.includes(input) ? "block" : "none";
+            });
+        }
+
+        /* -------- ADD EXPENSE -------- */
+        function addExpense() {
+            const name = prompt("Enter Expense Name:");
+            const amount = prompt("Enter Amount:");
+
+            if (name && amount) {
+                const newCard = document.createElement("div");
+                newCard.className = "expense-card";
+                newCard.innerHTML =
+                    `<span>💰</span>
+                     <h4>${name}</h4>
+                     <strong>₹${amount}</strong>`;
+
+                document.getElementById("expenseList")
+                    .appendChild(newCard);
+            }
+        }
+
+        /* -------- TABS -------- */
+        function changeTab(button) {
+            const buttons = document.querySelectorAll(".tabs button");
+            buttons.forEach(btn => btn.classList.remove("active"));
+            button.classList.add("active");
+        }
+
+        /* -------- BOTTOM NAV -------- */
+        function goHome() {
+            window.location.href = "home.html";
+        }
+
+        function goStats() {
+            window.location.href = "stats.html";
+        }
+
+    </script>
+
+<script>
+    /* -------- PROFILE MENU -------- */
+    function toggleProfileMenu() {
+        const menu = document.getElementById("profileMenu");
+        menu.style.display =
+            menu.style.display === "block" ? "none" : "block";
+    }
+    
+    function viewProfile() {
+        window.location.href = "profile.html";
+    }
+    
+    function openSettings() {
+        window.location.href = "settings.html";
+    }
+    
+    function changePassword() {
+        window.location.href = "change-password.html";
+    }
+    
+    function logoutUser() {
+        if (confirm("Are you sure you want to logout?")) {
+            window.location.href = "login.html";
+        }
+    }
+    
+    /* Close dropdown when clicking outside */
+    window.addEventListener("click", function (e) {
+        if (!e.target.closest(".nav-profile")) {
+            document.getElementById("profileMenu").style.display = "none";
+        }
+    });
+    
+    
+    /* -------- GREETING -------- */
+    function setGreeting() {
+        const name = document.getElementById("username").value;
+        const hour = new Date().getHours();
+        let greeting;
+    
+        if (hour < 12) greeting = "Good Morning";
+        else if (hour < 17) greeting = "Good Afternoon";
+        else greeting = "Good Evening";
+    
+        document.getElementById("greetingText").innerText =
+            greeting + ", " + name + "! 👋";
+    }
+    
+    window.onload = setGreeting;
+    
+    
+    /* -------- REGRET METER -------- */
+    function updateRegret() {
+        const value = document.getElementById("regretRange").value;
+        const text = document.getElementById("regretText");
+    
+        if (value < 30) {
+            text.innerText = "No Regret 😄";
+            text.style.color = "green";
+        } else if (value < 70) {
+            text.innerText = "Moderate Regret 😅";
+            text.style.color = "orange";
+        } else {
+            text.innerText = "High Regret 😬";
+            text.style.color = "red";
+        }
+    }
+    
+    
+    /* -------- SEARCH -------- */
+    function searchExpense() {
+        const input = document.getElementById("searchInput").value.toLowerCase();
+        const cards = document.querySelectorAll(".expense-card");
+    
+        cards.forEach(card => {
+            const text = card.innerText.toLowerCase();
+            card.style.display =
+                text.includes(input) ? "flex" : "none";
+        });
+    }
+    
+    
+    /* -------- ADD EXPENSE -------- */
+    function addExpense() {
+        const name = prompt("Enter Expense Name:");
+        const amount = prompt("Enter Amount:");
+    
+        if (name && amount) {
+            const newCard = document.createElement("div");
+            newCard.className = "expense-card";
+            newCard.innerHTML =
+                `<span>💰</span>
+                 <h4>${name}</h4>
+                 <strong>₹${amount}</strong>`;
+    
+            document.getElementById("expenseList")
+                .appendChild(newCard);
+        }
+    }
+    
+    
+    /* -------- TABS -------- */
+    function changeTab(button) {
+        const buttons = document.querySelectorAll(".tabs button");
+        buttons.forEach(btn => btn.classList.remove("active"));
+        button.classList.add("active");
+    }
+    
+    
+    /* -------- BOTTOM NAV -------- */
+    function goHome() {
+        window.location.href = "home.html";
+    }
+    
+    function goStats() {
+        window.location.href = "stats.html";
+    }
+    </script>
+    
+
+</body>
+
+</html>
