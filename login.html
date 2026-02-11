@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Smart Expense Tracker - Login</title>
+    <link rel="stylesheet" href="login.css">
+
+</head>
+<body>
+
+
+
+<div class="container">
+    <div class="card">
+        <h2>Welcome Back 👋</h2>
+        <p class="subtitle">Login to Smart Expense Tracker</p>
+
+        <!-- onsubmit added -->
+        <form onsubmit="return validateLogin()">
+
+            <div class="input-group">
+                <label>Email</label>
+                <!-- id added -->
+                <input type="text" id="email" placeholder="Enter your email">
+            </div>
+            
+            <div class="input-group">
+                <label>Password</label>
+                <!-- id added -->
+                <input type="password" id="password" placeholder="Enter your password">
+            </div>
+
+            <div class="options">
+                <label>
+                    <input type="checkbox"> Remember me
+                </label>
+                <a href="#">Forgot password?</a>
+            </div>
+
+            <!-- <button type="submit">Login</button> -->
+             <a href="home.html" class="login-btn">Login</a>
+
+
+            <p class="register-link">
+                Don’t have an account? <a href="index.html">Register</a>
+            </p>
+        </form>
+    </div>
+</div>
+
+<!-- JavaScript inside body (correct place) -->
+<script>
+function validateLogin() {
+    var email = document.getElementById("email").value;
+    var password = document.getElementById("password").value;
+
+    // Email validation
+    if (email === "") {
+        alert("Email is required");
+        return false;
+    }
+
+    if (email.indexOf("@") === -1 || email.indexOf(".") === -1) {
+        alert("Please enter a valid email address");
+        return false;
+    }
+
+    // Password validation
+    if (password === "") {
+        alert("Password is required");
+        return false;
+    }
+
+    if (password.length < 6) {
+        alert("Password must be at least 6 characters long");
+        return false;
+    }
+
+    alert("Login successful!");
+    return true;
+}
+</script>
+
+</body>
+</html>
