@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Expenses List - Smart Expense Tracker</title>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <link rel="stylesheet" href="expenses.css">
+</head>
+
+<body>
+
+    <!-- NAV BAR -->
+    <nav class="top-nav">
+        <div class="nav-container">
+            <div class="logo">Smart Expense Tracker</div>
+
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li class="active"><a href="expenses1.html">Expenses</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+
+            <div class="nav-profile">
+                <i class="fa-solid fa-user"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- CONTENT -->
+    <div class="page-wrapper">
+        <div class="app">
+
+            <h2 class="page-title">Expenses List</h2>
+
+            <div class="expense-table">
+
+                <!-- HEADER -->
+                <div class="expense-row header">
+                    <span>Category</span>
+                    <span>Date</span>
+                    <span>Amount</span>
+                    <span>Actions</span>
+                </div>
+
+                <!-- ROW -->
+                <div class="expense-row">
+                    <span><i class="fa-solid fa-utensils icon food"></i> Food</span>
+                    <span>12 Mar 2024</span>
+                    <span class="amount">₹230</span>
+                    <span class="actions">
+                        <div class="action-item">
+                            <i class="fa-solid fa-pen edit"></i>
+                            <small>Update</small>
+                        </div>
+
+                        <div class="action-item">
+                            <i class="fa-solid fa-trash delete"></i>
+                            <small>Delete</small>
+                        </div>
+                    </span>
+                </div>
+
+                <div class="expense-row">
+                    <span><i class="fa-solid fa-gas-pump icon fuel"></i> Fuel</span>
+                    <span>11 Mar 2024</span>
+                    <span class="amount">₹400</span>
+                    <span class="actions">
+                        <div class="action-item">
+                            <i class="fa-solid fa-pen edit"></i>
+                            <small>Update</small>
+                        </div>
+
+                        <div class="action-item">
+                            <i class="fa-solid fa-trash delete"></i>
+                            <small>Delete</small>
+                        </div>
+                    </span>
+                </div>
+
+                <div class="expense-row">
+                    <span><i class="fa-solid fa-shirt icon cloth"></i> Clothing</span>
+                    <span>10 Mar 2024</span>
+                    <span class="amount">₹1000</span>
+                    <span class="actions">
+                        <div class="action-item">
+                            <i class="fa-solid fa-pen edit"></i>
+                            <small>Update</small>
+                        </div>
+
+                        <div class="action-item">
+                            <i class="fa-solid fa-trash delete"></i>
+                            <small>Delete</small>
+                        </div>
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
