@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About Us - Smart Expense Tracker</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <link rel="stylesheet" href="about.css">
+</head>
+<body>
+
+<!-- ================= NAV BAR ================= -->
+<nav class="top-nav">
+    <div class="nav-container">
+        <div class="logo">Smart Expense Tracker</div>
+
+        <ul class="nav-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="expenses1.html">Expenses</a></li>
+            <li class="active"><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+
+        <div class="nav-profile">
+            <i class="fa-solid fa-user"></i>
+        </div>
+    </div>
+</nav>
+
+<!-- ================= ABOUT SECTION ================= -->
+<div class="page-wrapper">
+    <div class="about-container">
+
+        <h1>About Smart Expense Tracker</h1>
+        <p class="intro">
+            Smart Expense Tracker helps users track daily expenses, analyze spending habits,
+            and reduce unnecessary spending using a unique <strong>Regret Meter</strong>.
+        </p>
+
+        <!-- FEATURES -->
+        <div class="features">
+            <div class="feature-card">
+                <i class="fa-solid fa-wallet"></i>
+                <h3>Expense Tracking</h3>
+                <p>Record and manage your daily, weekly, and monthly expenses easily.</p>
+            </div>
+
+            <div class="feature-card">
+                <i class="fa-solid fa-chart-line"></i>
+                <h3>Smart Analytics</h3>
+                <p>Visualize spending patterns to make smarter financial decisions.</p>
+            </div>
+
+            <div class="feature-card">
+                <i class="fa-solid fa-face-grin-stars"></i>
+                <h3>Regret Meter</h3>
+                <p>Know how much you overspend and control impulse purchases.</p>
+            </div>
+        </div>
+
+        <!-- READ MORE -->
+        <div class="more-section">
+            <button onclick="toggleMore()">Read More</button>
+
+            <p id="moreText">
+                This project is designed for students and professionals to improve
+                financial awareness. It provides a user-friendly interface,
+                real-time insights, and future-ready scalability for backend integration.
+            </p>
+        </div>
+
+        <!-- ACTION BUTTON -->
+        <div class="action-area">
+            <button class="contact-btn" onclick="contactAlert()">
+                Contact Our Team
+            </button>
+        </div>
+
+    </div>
+</div>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+    <p>© <span id="year"></span> Smart Expense Tracker. All rights reserved.</p>
+</footer>
+
+<script>
+/* SHOW / HIDE READ MORE */
+function toggleMore() {
+    const text = document.getElementById("moreText");
+    if (text.style.display === "block") {
+        text.style.display = "none";
+    } else {
+        text.style.display = "block";
+    }
+}
+
+/* CONTACT ACTION */
+function contactAlert() {
+    alert("Thank you for your interest! Please visit the Contact Us page.");
+}
+
+/* AUTO YEAR */
+document.getElementById("year").innerText = new Date().getFullYear();
+</script>
+
+</body>
+</html>

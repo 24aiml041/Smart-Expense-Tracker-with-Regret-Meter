@@ -1,0 +1,165 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+/* BODY */
+body {
+    background: #edf3ff;
+}
+
+/* NAV BAR */
+.top-nav {
+    width: 100%;
+    background: #f8fbff;
+    border-bottom: 1px solid #e2e8ff;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 14px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 18px;
+    font-weight: 600;
+    color: #3a6df0;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #555;
+    padding: 8px 14px;
+    border-radius: 14px;
+}
+
+.nav-links .active a {
+    background: #3a6df0;
+    color: white;
+}
+
+.nav-profile {
+    background: #e6edff;
+    padding: 10px;
+    border-radius: 50%;
+    color: #3a6df0;
+}
+
+/* ABOUT CONTAINER */
+.page-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.about-container {
+    max-width: 1200px;
+    background: white;
+    margin: 30px;
+    padding: 30px;
+    border-radius: 22px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+}
+
+.about-container h1 {
+    color: #2f5ce0;
+    margin-bottom: 15px;
+}
+
+.intro {
+    color: #666;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+/* FEATURES */
+.features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.feature-card {
+    background: #f3f7ff;
+    padding: 20px;
+    border-radius: 18px;
+    text-align: center;
+}
+
+.feature-card i {
+    font-size: 28px;
+    color: #3a6df0;
+    margin-bottom: 10px;
+}
+
+.feature-card h3 {
+    margin-bottom: 8px;
+}
+
+/* READ MORE */
+.more-section {
+    margin-top: 30px;
+}
+
+.more-section button {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 14px;
+    background: #3a6df0;
+    color: white;
+    cursor: pointer;
+}
+
+#moreText {
+    display: none;
+    margin-top: 15px;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* ACTION BUTTON */
+.action-area {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.contact-btn {
+    padding: 12px 22px;
+    border-radius: 18px;
+    border: none;
+    background: #2f5ce0;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* FOOTER */
+footer {
+    margin-top: 30px;
+    text-align: center;
+    color: #777;
+    padding-bottom: 20px;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .features {
+        grid-template-columns: 1fr;
+    }
+
+    .nav-links {
+        display: none;
+    }
+}
