@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Us - Smart Expense Tracker</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <link rel="stylesheet" href="contact.css">
+</head>
+<body>
+
+<!-- ================= NAV BAR ================= -->
+<nav class="top-nav">
+    <div class="nav-container">
+        <div class="logo">Smart Expense Tracker</div>
+
+        <ul class="nav-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="expenses1.html">Expenses</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li class="active"><a href="contact.html">Contact Us</a></li>
+        </ul>
+
+        <div class="nav-profile">
+            <i class="fa-solid fa-user"></i>
+        </div>
+    </div>
+</nav>
+
+<!-- ================= CONTACT SECTION ================= -->
+<div class="page-wrapper">
+    <div class="contact-container">
+
+        <h1>Contact Us</h1>
+        <p class="subtitle">
+            Have questions or feedback? We’d love to hear from you.
+        </p>
+
+        <!-- CONTACT FORM -->
+        <form onsubmit="return validateContactForm()">
+
+            <div class="input-group">
+                <label>Full Name</label>
+                <input type="text" id="name" placeholder="Enter your name">
+            </div>
+
+            <div class="input-group">
+                <label>Email Address</label>
+                <input type="text" id="email" placeholder="Enter your email">
+            </div>
+
+            <div class="input-group">
+                <label>Subject</label>
+                <input type="text" id="subject" placeholder="Subject">
+            </div>
+
+            <div class="input-group">
+                <label>Message</label>
+                <textarea id="message" rows="4" placeholder="Write your message"></textarea>
+            </div>
+
+            <button type="submit">Send Message</button>
+        </form>
+
+        <p id="successMsg"></p>
+
+    </div>
+</div>
+
+<!-- ================= JAVASCRIPT ================= -->
+<script>
+function validateContactForm() {
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const subject = document.getElementById("subject").value.trim();
+    const message = document.getElementById("message").value.trim();
+    const successMsg = document.getElementById("successMsg");
+
+    // Email basic validation
+    const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,}$/i;
+
+    if (name === "" || email === "" || subject === "" || message === "") {
+        alert("All fields are required!");
+        return false;
+    }
+
+    if (!email.match(emailPattern)) {
+        alert("Please enter a valid email address!");
+        return false;
+    }
+
+    successMsg.innerText = "✅ Thank you! Your message has been sent successfully.";
+    successMsg.style.color = "green";
+
+    return false; // prevent actual submit (for demo)
+}
+</script>
+
+</body>
+</html>

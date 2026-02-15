@@ -1,0 +1,148 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+
+
+/* BODY */
+body {
+    background: #edf3ff;
+}
+
+/* NAV BAR */
+.top-nav {
+    width: 100%;
+    background: #f8fbff;
+    border-bottom: 1px solid #e2e8ff;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 14px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 18px;
+    font-weight: 600;
+    color: #3a6df0;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #555;
+    padding: 8px 14px;
+    border-radius: 14px;
+}
+
+.nav-links .active a {
+    background: #3a6df0;
+    color: white;
+}
+
+.nav-profile {
+    background: #e6edff;
+    padding: 10px;
+    border-radius: 50%;
+    color: #3a6df0;
+}
+
+/* CONTACT CONTAINER */
+.page-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.contact-container {
+    max-width: 500px;
+    background: white;
+    margin: 40px;
+    padding: 30px;
+    border-radius: 22px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+}
+
+.contact-container h1 {
+    color: #2f5ce0;
+    margin-bottom: 6px;
+}
+
+.subtitle {
+    color: #666;
+    margin-bottom: 25px;
+}
+
+/* INPUTS */
+.input-group {
+    margin-bottom: 16px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 6px;
+}
+
+.input-group input,
+.input-group textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 14px;
+    border: 1px solid #dbe6ff;
+    outline: none;
+    font-size: 14px;
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+    border-color: #3a6df0;
+}
+
+/* BUTTON */
+button {
+    width: 100%;
+    padding: 12px;
+    border-radius: 16px;
+    border: none;
+    background: #3a6df0;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background: #2f5ce0;
+}
+
+/* SUCCESS MESSAGE */
+#successMsg {
+    margin-top: 15px;
+    text-align: center;
+    font-weight: 500;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+
+    .contact-container {
+        margin: 20px;
+    }
+}
